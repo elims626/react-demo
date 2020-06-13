@@ -1,0 +1,17 @@
+.header {
+    height: 56px;
+    line-height: 56px;
+    padding: 0 20px;
+    color: #ffffff;
+    background: #2e354a;
+}
+
+a {
+  color: #c2b8b8;
+  font-size: 12px;
+    text-decoration: none;
+}
+
+a:hover {
+  color:  #ffffff;
+}

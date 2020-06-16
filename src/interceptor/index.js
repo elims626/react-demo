@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { Message } from '@/utils';
+import { Message } from '../utils/index';
 
-axios.defaults.baseURL = '/';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? '/XXXXXX' : '/';
 
 axios.interceptors.request.use(
     (config) => config,

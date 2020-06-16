@@ -22,9 +22,9 @@ class Home extends React.Component{
   }
   // 生命周期 - 首次渲染后调用，客户端。
   componentDidMount() {
-    this.syncTabeData();
+    this.syncTableData();
   };
-  syncTabeData() {
+  syncTableData() {
     // 本地json
     axios({
       method: 'GET',
@@ -52,8 +52,16 @@ class Home extends React.Component{
       }
     });
   };
-  handleAdd() {
+  handleAdd = () => {
     console.log('Add');
+    this.props.history.push('/home/add/67');
+    // 该方法页面跳转后刷新页面query参数会丢失
+    // this.props.history.push({
+    //   pathname: '/home/add',
+    //   query: {
+    //     id: 567,
+    //   },
+    // });
   };
   render() {
     return (

@@ -1,11 +1,11 @@
 import React from "react";
-import './header.css';
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
 import ReactDOM from "react-dom";
+import App from "../../App";
 import {IntlProvider} from "react-intl";
 import {locale} from "../../i18n";
-import App from "../../App";
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import './header.css';
 
 class Header extends React.Component{
   constructor(props){

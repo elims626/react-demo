@@ -7,14 +7,17 @@ import { IntlProvider } from 'react-intl';
 import { locale } from './i18n/index';
 
 // 日期国际化
-import moment from 'moment';
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+// import moment from 'moment';
+// import 'moment/locale/zh-cn';
+// moment.locale('zh-cn');
 
-const lang = 'zh';
+const lang = window.localStorage.getItem('lang') || 'zh';
 
 ReactDOM.render(
-  <IntlProvider locale={lang} messages={locale(lang)}>
+  <IntlProvider
+    locale={lang}
+    messages={locale(lang)}
+  >
     <App />
   </IntlProvider>,
   document.getElementById('root')

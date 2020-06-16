@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { IntlProvider } from 'react-intl';
+import { locale } from './i18n/index';
 
-// import zhCN from 'antd/es/locale/zh_CN';
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
+// 日期国际化
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
-// moment.locale('zh-cn');
+const lang = 'zh';
 
 ReactDOM.render(
-  <App />,
+  <IntlProvider locale={lang} messages={locale(lang)}>
+    <App />
+  </IntlProvider>,
   document.getElementById('root')
 );
 

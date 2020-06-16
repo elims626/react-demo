@@ -1,19 +1,11 @@
-// import { setLocale, getLocale } from 'umi';
-
 import zh from './lang/zh';
 import en from './lang/en';
 
-// console.log(getLocale(), setLocale());
-
-const lang = 'zh-CN';
-
-const message = {
-  'zh-CN': zh,
-  'en-US': en,
+const messages = {
+  zh,
+  en,
 };
 
-export const i18n = () => {
-  console.log(message[lang], '565665');
-  // setLocale(message[lang]);
-  return message[lang];
+export const locale = (lang) => {
+  return messages[lang];
 };

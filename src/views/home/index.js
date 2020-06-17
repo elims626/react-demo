@@ -54,10 +54,10 @@ class Home extends React.Component{
   };
   handleAdd = () => {
     console.log('Add');
-    this.props.history.push('/home/add/67');
+    this.props.history.push('/home/detail/67');
     // 该方法页面跳转后刷新页面query参数会丢失
     // this.props.history.push({
-    //   pathname: '/home/add',
+    //   pathname: '/home/detail',
     //   query: {
     //     id: 567,
     //   },

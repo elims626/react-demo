@@ -1,17 +1,12 @@
 .header {
+    position: fixed;
+    z-index: 10;
     height: 56px;
+    top: 0;
+    left: 0;
+    right: 0;
     line-height: 56px;
     padding: 0 20px;
     color: #ffffff;
     background: #2e354a;
-}
-
-a {
-  color: #c2b8b8;
-  font-size: 12px;
-    text-decoration: none;
-}
-
-a:hover {
-  color:  #ffffff;
 }

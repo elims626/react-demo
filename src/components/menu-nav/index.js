@@ -85,7 +85,8 @@ class MenuNav extends React.Component {
     if (hash === '#/') return;
     const url = hash.split('/')[1];
     const openMenu = menu.find((e) => e.url === `/${url}`);
-    const selected = openMenu.children && openMenu.children.length ? openMenu.children.find((e) => e.url=== hash.substring(1)).id :openMenu.id;
+    const tempUrl = "/" + hash.split('/')[1] + "/" + hash.split('/')[2];
+    const selected = openMenu.children && openMenu.children.length ? openMenu.children.find((e) => e.url=== tempUrl).id : openMenu.id;
     this.setState({
       defaultSelectedKeys: [selected],
       openKeys: [openMenu.id],

@@ -54,9 +54,9 @@ class ArticleDetail extends React.Component{
     };
   }
   componentDidMount() {
-  }
+    console.log(this.props);
+  };
   handleEdit = (row) => {
-    console.log(row);
     this.props.history.push(`/user/article/detail/${row.uid}`);
   };
   handleDelete = (row) => {

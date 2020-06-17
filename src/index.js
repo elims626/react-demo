@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { IntlProvider } from 'react-intl';
-import { locale } from './i18n/index';
+
+import { locale } from './intl/index';
 
 // 日期国际化
 // import moment from 'moment';
@@ -17,7 +18,7 @@ ReactDOM.render(
   <IntlProvider
     locale={lang}
     messages={locale(lang)}
-  >
+    >
     <App />
   </IntlProvider>,
   document.getElementById('root')

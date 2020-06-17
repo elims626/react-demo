@@ -1,4 +1,5 @@
 import zhCN from 'antd/es/locale/zh_CN';
+// import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 export default {
   app: 'XXXX系统',

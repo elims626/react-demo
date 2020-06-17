@@ -10,6 +10,7 @@ class User extends React.Component{
     };
   }
   componentDidMount() {
+    console.log(this.props);
     for (let i = 0; i < 23; i++) {
       this.state.listData.push({
         href: 'https://ant.design',

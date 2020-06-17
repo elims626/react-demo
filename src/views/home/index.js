@@ -3,6 +3,7 @@ import axios from '../../interceptor/index';
 import { Message } from '../../utils/index';
 import { FormattedMessage } from 'react-intl';
 import { List, Typography, Divider, Button } from 'antd';
+import RForm from '../../components/form';
 
 class Home extends React.Component{
   constructor(props){
@@ -15,6 +16,80 @@ class Home extends React.Component{
         'Man charged over missing wedding girl.',
         'Los Angeles battles huge wildfires.',
       ],
+      formData: {
+        username: 'testuser001',
+      },
+      formDefault: [
+        {
+          name: '用户名',
+          key: 'username',
+          type: 'input',
+          message: '用户名不能为空',
+          required: true,
+        },
+        {
+          name: '密码',
+          key: 'password',
+          type: 'password',
+          message: '密码不能为空',
+          required: true,
+        },
+        {
+          name: '应用',
+          key: 'appid',
+          type: 'select',
+          message: '应用不能为空',
+          required: true,
+        },
+        {
+          name: '开关',
+          key: 'open',
+          type: 'switch',
+          message: '开关不能为空',
+          required: true,
+        },
+        {
+          name: '每周',
+          key: 'week',
+          type: 'checkbox',
+          message: '不能为空',
+          required: true,
+        },
+      ],
+      bigFormObj: {
+        week: [
+          {
+            label: '周一',
+            value: 'monday',
+          },
+          {
+            label: '周二',
+            value: 'Tu',
+          },
+          {
+            label: '周三',
+            value: 'Wed',
+          },
+          {
+            label: '周四',
+            value: 'Ta',
+          },
+        ],
+        appid: [
+          {
+            label: '应用A',
+            value: 'a',
+          },
+          {
+            label: '应用B',
+            value: 'b',
+          },
+          {
+            label: '应用C',
+            value: 'c',
+          },
+        ],
+      },
     };
   }
   // 生命周期 - 在渲染前调用,客户端-服务端。
@@ -39,18 +114,18 @@ class Home extends React.Component{
       }
     });
     // 服务器
-    axios({
-      method: 'POST',
-      url: '/application/group/listByPage',
-      data: {},
-    }).then((res) => {
-      if(res.data.code === '0') {
-        Message({
-          type: 'success',
-          content: res.data.msg,
-        });
-      }
-    });
+    // axios({
+    //   method: 'POST',
+    //   url: '/application/group/listByPage',
+    //   data: {},
+    // }).then((res) => {
+    //   if(res.data.code === '0') {
+    //     Message({
+    //       type: 'success',
+    //       content: res.data.msg,
+    //     });
+    //   }
+    // });
   };
   handleAdd = () => {
     console.log('Add');
@@ -63,9 +138,20 @@ class Home extends React.Component{
     //   },
     // });
   };
+  // 参数回调
+  handleUpdate = (val) => {
+    console.log(val);
+  };
   render() {
+    const { formDefault, bigFormObj, formData } = this.state;
     return (
       <div>
+        <RForm
+          formData={formData}
+          formDefault={formDefault}
+          bigFormObj={bigFormObj}
+          handleUpdate={this.handleUpdate}
+        />
         <Button
           type="primary"
           onClick={this.handleAdd}

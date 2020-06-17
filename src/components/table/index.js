@@ -73,7 +73,7 @@ export class RTable extends React.Component{
         <div>
           <Row>
             <Col span={18}>
-              <slot name="button" />
+              {this.props.slot}
             </Col>
             <Col span={6}>
               <Search

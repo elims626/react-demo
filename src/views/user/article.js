@@ -63,14 +63,26 @@ class ArticleDetail extends React.Component{
     console.log(row.id, 'delete');
     this.refs.table.syncTable();
   };
+  handleAdd = () => {
+    console.log('add');
+  };
   render() {
     const { columns } = this.state;
+    const slot = (
+      <Button
+        type="primary"
+        onClick={() => this.handleAdd()}
+       >
+        <FormattedMessage id="operate.add" />
+      </Button>
+    );
     return (
       <RTable
         ref="table"
         columns={columns}
         url={'/home.json'}
         method={'GET'}
+        slot={slot}
       />
     );
   }

@@ -1,11 +1,10 @@
 import React from "react";
-import {Form, Input, Button, Checkbox, Switch, Select, Space, InputNumber, Radio, DatePicker} from 'antd';
-import {FormattedMessage} from "react-intl";
+import {Form, Input, InputNumber, Checkbox, Switch, Select, Radio, Modal, DatePicker } from 'antd';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-class RForm extends React.Component {
+class DialogForm extends React.Component {
   formRef = React.createRef();
   constructor(props){
     super(props);
@@ -45,18 +44,21 @@ class RForm extends React.Component {
       bigFormObj,
     });
   }
-  // 生命周期 - 首次渲染后调用，客户端。
-  componentDidMount() {
-    // 填充 form 值
-    const { formData } = this.props;
-    this.formRef.current.setFieldsValue(formData);
+  componentDidUpdate = (nextProps) => {
+    setTimeout(() => {
+      this.formRef.current.setFieldsValue(nextProps.formData);
+    },0);
   };
   // 表单 - 提交
-  handleConfirm = (values) => {
-    this.props.handleUpdate(values);
+  handleConfirm = () => {
+    this.formRef.current.validateFields().then((value) => {
+      this.props.handleUpdate(value);
+      this.formRef.current.resetFields();
+    }).catch();
   };
   // 表单 - 取消
   handleCancel = () => {
+    this.props.handleUpdate();
     this.formRef.current.resetFields();
   };
   renderFormItem = (props) => {
@@ -98,63 +100,53 @@ class RForm extends React.Component {
     );
     else if (type === 'data') return (
         <DatePicker
-            showTime={props.showTime}
+          showTime={props.showTime}
         />
     );
     else if (type === 'dataRange') return (
         <RangePicker
-            showTime={props.showTime}
+          showTime={props.showTime}
         />
     );
   };
   render() {
     return (
-        <Form
-          {...this.state.layout}
-          name="control-ref"
-          ref={this.formRef}
-          initialValues={{
-            open: false,
-          }}
-          onFinish={this.handleConfirm}
+        <Modal
+            title="Basic Modal"
+            visible={this.props.visible}
+            onOk={this.handleConfirm}
+            onCancel={this.handleCancel}
         >
-          {
-            this.state.formDefault.map((item) => (
-              <Form.Item
-                label={item.name}
-                name={item.key}
-                key={item.key}
-                rules={[
-                  {
-                    required: item.required,
-                    message: item.message,
-                  },
-                ]}
-               >
-                {this.renderFormItem(item)}
-              </Form.Item>
-            ))
-          }
-          <Form.Item {...this.state.tailLayout}>
-            <Space>
-              <Button
-                type="cancel"
-                htmlType="button"
-                onClick={this.handleCancel}
-              >
-                <FormattedMessage id="operate.cancel" />
-              </Button>
-              <Button
-                type="primary"
-                htmlType="submit"
-              >
-                <FormattedMessage id="operate.confirm" />
-              </Button>
-            </Space>
-          </Form.Item>
-        </Form>
+          <Form
+              {...this.state.layout}
+              name="control-ref"
+              ref={this.formRef}
+              initialValues={{
+                open: false,
+              }}
+              onFinish={this.handleConfirm}
+          >
+            {
+              this.state.formDefault.map((item) => (
+                  <Form.Item
+                      label={item.name}
+                      name={item.key}
+                      key={item.key}
+                      rules={[
+                        {
+                          required: item.required,
+                          message: item.message,
+                        },
+                      ]}
+                  >
+                    {this.renderFormItem(item)}
+                  </Form.Item>
+              ))
+            }
+          </Form>
+        </Modal>
     );
   }
 }
 
-export default RForm;
+export default DialogForm;

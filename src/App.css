@@ -1,13 +1,17 @@
-.App {
+.app {
   margin: 0;
   padding: 0;
   background: #f0f0f0;
-  height: 100vh;
+  height: 100%;
+}
+
+.app-content {
+  padding-top: 56px;
 }
 
 .content {
-  margin: 56px 20px 20px 220px;
-  padding: 10px;
-  background: #ffffff;
   min-height: calc(100vh - 96px);
+  margin: 20px 20px 20px 220px;
+  padding: 20px;
+  background: #ffffff;
 }

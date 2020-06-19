@@ -7,12 +7,14 @@ import RRouter from '../src/router/index';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <RHeader />
       <HashRouter>
-        <MenuNav />
-        <div className="content">
-          <RRouter />
+        <div className="app-content">
+          <MenuNav />
+          <div className="content">
+            <RRouter />
+          </div>
         </div>
       </HashRouter>
     </div>

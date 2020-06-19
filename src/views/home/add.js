@@ -8,7 +8,7 @@ class User extends React.Component{
   }
   render() {
     return (
-      <div>
+      <div className="text-align-center">
         { this.props.match.params.id }
         {/*{ this.props.location.query.id }*/}
       </div>

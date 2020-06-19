@@ -62,3 +62,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-width: 100px;
+    border-style: solid;
+    border-color: transparent #FFCCCC transparent transparent;
+    transform: rotate(45deg);
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { ConfigProvider } from 'antd';
 import { IntlProvider } from 'react-intl';
 
 import { locale } from './intl/index';
@@ -19,7 +20,11 @@ ReactDOM.render(
     locale={lang}
     messages={locale(lang)}
     >
-    <App />
+    <ConfigProvider
+      locale={locale(lang)}
+    >
+      <App />
+    </ConfigProvider>
   </IntlProvider>,
   document.getElementById('root')
 );

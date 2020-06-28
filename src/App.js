@@ -3,6 +3,7 @@ import { HashRouter } from 'react-router-dom';
 import './App.css';
 import RHeader from '../src/components/header/index';
 import MenuNav from './components/menu-nav/index';
+import RBread from "./components/bread";
 import RRouter from '../src/router/index';
 
 function App() {
@@ -13,7 +14,10 @@ function App() {
         <div className="app-content">
           <MenuNav />
           <div className="content">
-            <RRouter />
+            <RBread />
+            <div className="content-container">
+              <RRouter />
+            </div>
           </div>
         </div>
       </HashRouter>

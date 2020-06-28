@@ -10,8 +10,12 @@
 }
 
 .content {
-  min-height: calc(100vh - 96px);
   margin: 20px 20px 20px 220px;
+}
+
+.content-container {
+  min-height: calc(100vh - 138px);
   padding: 20px;
+  margin-top: 20px;
   background: #ffffff;
 }

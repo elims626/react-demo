@@ -11,9 +11,5 @@ export default {
   'operate.save': '保存',
   'operate.view': '查看',
   'operate.detail': '详情',
-  "operate": {
-    "add": '添加',
-    "delete": '删除',
-  },
   ...zhCN,
 };

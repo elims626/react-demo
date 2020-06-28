@@ -1,4 +1,5 @@
 import React from "react";
+import { DateFormat } from '../../utils';
 
 class User extends React.Component{
   constructor(props){
@@ -10,6 +11,7 @@ class User extends React.Component{
     return (
         <div>
           Photo
+          {DateFormat(1360013296000)}
         </div>
     );
   }

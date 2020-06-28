@@ -17,6 +17,7 @@ export class RTable extends React.Component{
         },
         keyword: '',
       },
+      inputSearch: '请输入搜索内容',
       loading: false,
     };
   }
@@ -77,7 +78,7 @@ export class RTable extends React.Component{
             </Col>
             <Col span={6}>
               <Search
-                placeholder="input search text"
+                placeholder={this.props.inputSearch || this.state.inputSearch}
                 onSearch={this.handleSearch}
                 enterButton
                 allowClear

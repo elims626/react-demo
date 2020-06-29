@@ -9,10 +9,18 @@ class URouter extends React.Component{
   render() {
     return (
       <div>
-        <Route exact path="/user/article" component={UserArticle} />
-        <Route path="/user/article/detail/:aid" component={UserArticleDetail} />
-        <Route exact path="/user/photo" component={UserPhoto} />
-        <Route exact path="/user/share" component={UserShare} />
+        <Route path="/user" render={({history, location, match}) => (
+          <div history={history} location={location} match={match}>
+            <Route path="/user/article" render={({history, location, match}) => (
+                <div history={history} location={location} match={match}>
+                  <Route exact path="/user/article" component={UserArticle} />
+                  <Route path="/user/article/detail/:aid" component={UserArticleDetail} />
+                </div>
+            )} />
+            <Route exact path="/user/photo" component={UserPhoto} />
+            <Route exact path="/user/share" component={UserShare} />
+          </div>
+        )} />
       </div>
     );
   }

@@ -9,10 +9,10 @@ import RRouter from '../src/router/index';
 function App() {
   return (
     <div className="app">
-      <RHeader />
       <HashRouter>
+        <RHeader />
+        <MenuNav />
         <div className="app-content">
-          <MenuNav />
           <div className="content">
             <RBread />
             <div className="content-container">
